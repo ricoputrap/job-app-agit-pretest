@@ -2,7 +2,7 @@ from flask import Flask, jsonify
 
 app = Flask(__name__)
 
-@app.route('/soal/pretest/', methods=['GET'])
+@app.route('/soal/pretest/')
 def pretest():
     return jsonify({'nama':'mukidi',
                     'email':'mukidi@ai.astra.co.id',

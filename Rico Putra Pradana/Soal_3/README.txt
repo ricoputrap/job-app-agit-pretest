@@ -8,6 +8,9 @@ How to run this program in Windows:
 
 4. pip install -r requirements.txt
 
-5. rgb_to_gray.py
+5. python app.py
 
-6. when you're done, type 'deactivate' in CMD
+6. open the below url on your browser or postman:
+http://localhost:5000/soal/pretest/
+
+7. when you're done, type 'deactivate' in CMD
