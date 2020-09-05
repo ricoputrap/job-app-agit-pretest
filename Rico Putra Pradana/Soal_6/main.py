@@ -1,5 +1,6 @@
 from person import Person
 from save_to_excel import Excel
+from convert_img import ImageConverter
 
 print('Selamat datang di Program Terakhir')
 
@@ -19,6 +20,12 @@ def print_user_data(new_person):
     print('Nama Anda : {}'.format(new_person.nama))
     print('Email Anda : {}'.format(new_person.email))
     print('Usia Anda : {}'.format(new_person.age_to_string()))
+
+def print_img_selection():
+    print('Silahkan pilih gambar memes berikut ini:')
+    print('1: Bu Tejo')
+    print('2: Yao Ming')
+    print('3: Dua jam gak ngapa-ngapain')
 
 def print_break():
     print('=================================================')
@@ -41,6 +48,8 @@ if main_menu == '1':
     new_person.get_user_input()
     new_person.calculate_age()
 
+    print_break()
+
     # save to excel
     if save_menu == '1':
         filename = input('Masukkan nama file : ')
@@ -56,7 +65,6 @@ if main_menu == '1':
 
     # print out
     elif save_menu == '3':
-        print_break()
         print_user_data(new_person)
     else:
         pass # kembali take save_menu
@@ -67,7 +75,13 @@ elif main_menu == '2':
 
 # open cv
 elif main_menu == '3':
-    pass
+    print_img_selection()
+    selected_img = int(input('Masukkan 1, 2, atau 3: '))
+    
+    img_converter = ImageConverter(selected_img)
+    converted_img = img_converter.convert_to_gray()
+    img_converter.save_image(converted_img)
+    img_converter.show_img(converted_img)
 
 else:
     pass # kembali take main_menu
