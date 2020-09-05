@@ -35,3 +35,6 @@ Ketik `python rgb_to_gray.py` pada CMD.
 
 ### Soal 5
 Ketik `python open_astra.py` pada CMD.
+
+### Soal 6
+Ketik `python main.py` pada CMD.
