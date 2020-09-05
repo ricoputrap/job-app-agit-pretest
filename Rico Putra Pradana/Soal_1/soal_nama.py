@@ -1,35 +1,50 @@
 from datetime import date
 
-# get user input
-nama = input('Masukan Nama : ')
-email = input('Masukan Email : ')
-tgl = input('Masukan tanggal lahir (DD-MM-YYYY) : ')
+class SoalNama:
+    def __init__(self):
+        self.nama = ''
+        self.email = ''
+        self.tgl_lahir = ''
+        self.month_age = 0
+        self.year_age = 0
+    
+    def get_user_input(self):
+        self.nama = input('Masukan Nama : ')
+        self.email = input('Masukan Email : ')
+        self.tgl_lahir = input('Masukan tanggal lahir (DD-MM-YYYY) : ')
 
-# extract dates element in int
-dates = tgl.split('-')
-day_birth, month_birth, year_birth = int(dates[0]), int(dates[1]), int(dates[2])
+    def calculate_age(self):
+        # extract birth date elements to int
+        dates = self.tgl_lahir.split('-')
+        day_birth, month_birth, year_birth = int(dates[0]), int(dates[1]), int(dates[2])
 
-# prepare some age elements
-today = date.today()
-year_age = today.year - year_birth
-month_age = today.month - month_birth
-day_age = today.day - day_birth
+        # prepare some age elements
+        today = date.today()
+        day_age = today.day - day_birth
+        self.month_age = today.month - month_birth
+        self.year_age = today.year - year_birth
 
-# calculate month
-if month_age < 0:
-    year_age -= 1
-    month_age = 12 - month_birth + today.month
+        # finalize age
+        if self.month_age < 0:
+            self.year_age -= 1
+            self.month_age = 12 - month_birth + today.month
 
-if day_age < 0:
-    month_age -= 1
+        if day_age < 0:
+            self.month_age -= 1
+    
+    # get age in formatted string
+    def age_to_string(self):
+        if (self.month_age > 0):
+            return('{} Tahun {} Bulan'.format(self.year_age, self.month_age))
+        return('{} Tahun'.format(self.year_age))
 
-# get age in formatted string
-def age_to_string():
-    if (month_age > 0):
-        return('{} Tahun {} Bulan'.format(year_age, month_age))
-    return('{} Tahun'.format(year_age))
+if __name__=='__main__':
 
-print('=================================================')
-print('Nama Anda : {}'.format(nama))
-print('Email Anda : {}'.format(email))
-print('Usia Anda : {}'.format(age_to_string()))
+    soal = SoalNama()
+    soal.get_user_input()
+    soal.calculate_age()
+
+    print('=================================================')
+    print('Nama Anda : {}'.format(soal.nama))
+    print('Email Anda : {}'.format(soal.email))
+    print('Usia Anda : {}'.format(soal.age_to_string()))
