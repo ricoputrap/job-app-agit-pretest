@@ -1,6 +1,7 @@
 from person import Person
 from save_to_excel import Excel
 from convert_img import ImageConverter
+import open_as_json
 
 def print_main_menu():
     print('Silahkan pilih menu di bawah ini:')
@@ -13,6 +14,12 @@ def print_save_menu():
     print('Tujuan penyimpanan:')
     print('1: Simpan sebagai file excel')
     print('2: Tidak perlu disimpan, cukup dicetak saja')
+
+def create_new_person():
+    new_person = Person()
+    new_person.get_user_input()
+    new_person.calculate_age()
+    return new_person
 
 def print_user_data(new_person):
     print('Nama Anda : {}'.format(new_person.nama))
@@ -47,28 +54,28 @@ def print_closing_msg():
 
 def add_new_person():
     print_save_menu()
-    save_menu = input('Masukkan 1, 2, atau 3: ')
-    print_break()
-
-    # instatiate new person
-    new_person = Person()
-    new_person.get_user_input()
-    new_person.calculate_age()
+    save_menu = input('Masukkan 1 atau 2: ')
     print_break()
 
     # save to excel
     if save_menu == '1':
+        new_person = create_new_person()
         filename = input('Masukkan nama file : ')
         new_excel = Excel(filename)
         new_excel.fill_header()
         new_excel.add_data(new_person.nama, new_person.email, new_person.age_to_string())
         new_excel.close_workbook()
+
         print_success_msg('Menyimpan data ke excel')
+        print_break()
+        print_closing_msg()
 
     # print new person data
     elif save_menu == '2':
+        new_person = create_new_person()
         print_user_data(new_person)
         print_success_msg('Mencetak data diri')
+
         print_break()
         print_closing_msg()
 
@@ -77,6 +84,33 @@ def add_new_person():
         print('Mohon maaf Anda memasukkan pilihan yang kurang tepat.')
         print_break()
         add_new_person()
+
+def convert_img():
+    print_convert_type()
+    convert_type = input('Masukkan 1 atau 2: ')
+    print_break()
+    
+    if convert_type == '2':
+        print_rotation_type()
+        rotation_type = int(input('Masukkan 1, 2, atau 3: '))
+        print_break()
+
+    if convert_type != '1' and convert_type != '2':
+        print('Mohon maaf Anda memasukkan pilihan yang kurang tepat.')
+        print_break()
+        convert_img()
+
+    print_img_selection()
+    selected_img = int(input('Masukkan 1, 2, atau 3: '))
+    
+    img_converter = ImageConverter(selected_img)
+    converted_img = img_converter.convert_to_gray() if convert_type == '1' else img_converter.rotate_img(rotation_type)
+    img_converter.save_image(converted_img)
+    img_converter.show_img(converted_img)
+    print_success_msg('Mengonversi gambar')
+
+    print_break()
+    print_closing_msg()
 
 def open_main_menu():
     print_main_menu()
@@ -89,30 +123,23 @@ def open_main_menu():
         
     # show all data
     elif main_menu == '2':
-        pass 
+        print('Silahkan akses url berikut pada browser Anda')
+        print('http://localhost:5000/soal/pretest')
+        print_break()
+
+        open_as_json.run_app()
+        print_break()
+        print_success_msg('Membuka JSON')
+        print_break()
+        print_closing_msg()
 
     # convert image
     elif main_menu == '3':
-        print_convert_type()
-        convert_type = input('Masukkan 1 atau 2: ')
-        print_break()
-        
-        if convert_type == '2':
-            print_rotation_type()
-            rotation_type = int(input('Masukkan 1, 2, atau 3: '))
-            print_break()
+        convert_img()
 
-        print_img_selection()
-        selected_img = int(input('Masukkan 1, 2, atau 3: '))
-        
-        img_converter = ImageConverter(selected_img)
-        converted_img = img_converter.convert_to_gray() if convert_type == '1' else img_converter.rotate_img(rotation_type)
-        img_converter.save_image(converted_img)
-        img_converter.show_img(converted_img)
-        print_success_msg('Mengonversi gambar')
-
+    # exit program
     elif main_menu == '4':
-        print('Terima kasih telah menggunakan program ini!')
+        print_closing_msg()
 
     # back to main menu
     else:

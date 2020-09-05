@@ -1,4 +1,5 @@
 from datetime import date
+import sys
 
 class SoalNama:
     def __init__(self):
@@ -15,8 +16,13 @@ class SoalNama:
 
     def calculate_age(self):
         # extract birth date elements to int
-        dates = self.tgl_lahir.split('-')
-        day_birth, month_birth, year_birth = int(dates[0]), int(dates[1]), int(dates[2])
+        try:
+            dates = self.tgl_lahir.split('-')
+            day_birth, month_birth, year_birth = int(dates[0]), int(dates[1]), int(dates[2])
+        except:
+            print('Salah memasukkan tanggal!')
+            sys.exit('Terima kasih telah menggunakan program ini!')
+        
 
         # prepare some age elements
         today = date.today()
