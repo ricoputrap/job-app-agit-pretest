@@ -1,8 +1,13 @@
 # Panduan - Python Bootcamp Pretest
 File ini merupakan panduan untuk menjalankan program di setiap soal.
 
+##### Notes
+* Panduan ini disiapkan hanya untuk komputer dengan OS Windows.
+* Pastikan Anda telah menginstall **virtualenv** pada komputer Anda.
+* Jika Anda belum menginstallnya silahkan ketik `pip install virtualenv` pada aplikasi Command Prompt (CMD).
+
 ## Umum
-1. Buka aplikasi command line (CMD) pada *root folder* (lokasi saat ini).
+1. Buka CMD pada *root folder* (lokasi saat ini).
 2. Ketikkan beberapa baris kode di bawah ini pada CMD:
     ```
     python -m venv env
