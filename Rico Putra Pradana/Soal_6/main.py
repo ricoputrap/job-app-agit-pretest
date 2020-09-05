@@ -4,7 +4,7 @@ from save_to_excel import Excel
 print('Selamat datang di Program Terakhir')
 
 def print_main_menu():
-    print('Menu:')
+    print('Silahkan pilih menu di bawah ini:')
     print('1: Menambahkan Data Diri')
     print('2: Tampilkan Data')
     print('3: Konversi Gambar')
