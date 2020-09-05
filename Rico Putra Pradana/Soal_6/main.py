@@ -97,9 +97,10 @@ def open_main_menu():
         convert_type = input('Masukkan 1 atau 2: ')
         print_break()
         
-        print_rotation_type()
-        rotation_type = int(input('Masukkan 1, 2, atau 3: '))
-        print_break()
+        if convert_type == '2':
+            print_rotation_type()
+            rotation_type = int(input('Masukkan 1, 2, atau 3: '))
+            print_break()
 
         print_img_selection()
         selected_img = int(input('Masukkan 1, 2, atau 3: '))
