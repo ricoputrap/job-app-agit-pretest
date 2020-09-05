@@ -16,6 +16,12 @@ class ImageConverter:
     def convert_to_gray(self):
         img_gray = cv2.cvtColor(self.selected_img, cv2.COLOR_BGR2GRAY)
         return img_gray
+
+    def rotate_img(self, rotation_type):
+        if rotation_type == 1: rotated_img = cv2.rotate(self.selected_img, cv2.ROTATE_90_CLOCKWISE)
+        elif rotation_type == 2: rotated_img = cv2.rotate(self.selected_img, cv2.ROTATE_180)
+        else: rotated_img = cv2.rotate(self.selected_img, cv2.ROTATE_90_COUNTERCLOCKWISE)
+        return rotated_img
     
     def show_img(self, img):
         cv2.imshow('Output', img)

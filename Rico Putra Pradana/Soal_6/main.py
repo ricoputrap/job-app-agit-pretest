@@ -21,6 +21,11 @@ def print_user_data(new_person):
     print('Email Anda : {}'.format(new_person.email))
     print('Usia Anda : {}'.format(new_person.age_to_string()))
 
+def print_convert_type():
+    print('Pilih jenis konversi gambar:')
+    print('1: Hitam Putih')
+    print('2: Rotasi')
+
 def print_img_selection():
     print('Silahkan pilih gambar memes berikut ini:')
     print('1: Bu Tejo')
@@ -75,11 +80,14 @@ elif main_menu == '2':
 
 # open cv
 elif main_menu == '3':
+    print_convert_type()
+
     print_img_selection()
     selected_img = int(input('Masukkan 1, 2, atau 3: '))
     
     img_converter = ImageConverter(selected_img)
-    converted_img = img_converter.convert_to_gray()
+    # converted_img = img_converter.convert_to_gray()
+    converted_img = img_converter.rotate_img(1)
     img_converter.save_image(converted_img)
     img_converter.show_img(converted_img)
 
