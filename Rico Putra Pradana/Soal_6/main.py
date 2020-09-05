@@ -26,6 +26,12 @@ def print_convert_type():
     print('1: Hitam Putih')
     print('2: Rotasi')
 
+def print_rotation_type():
+    print('Pilih jenis rotasi:')
+    print('1: Rotasi ke kanan')
+    print('2: Rotasi ke kiri')
+    print('3: Pantulkan secara vertikal')
+
 def print_img_selection():
     print('Silahkan pilih gambar memes berikut ini:')
     print('1: Bu Tejo')
@@ -81,31 +87,22 @@ elif main_menu == '2':
 # open cv
 elif main_menu == '3':
     print_convert_type()
+    convert_type = input('Masukkan 1 atau 2: ')
+    print_break()
+    
+    print_rotation_type()
+    rotation_type = int(input('Masukkan 1, 2, atau 3: '))
+    print_break()
 
     print_img_selection()
     selected_img = int(input('Masukkan 1, 2, atau 3: '))
     
     img_converter = ImageConverter(selected_img)
-    # converted_img = img_converter.convert_to_gray()
-    converted_img = img_converter.rotate_img(1)
+
+    
+    converted_img = img_converter.convert_to_gray() if convert_type == '1' else img_converter.rotate_img(rotation_type)
     img_converter.save_image(converted_img)
     img_converter.show_img(converted_img)
 
 else:
     pass # kembali take main_menu
-
-# from save_to_excel import Excel
-
-# nama = input('Masukan Nama : ')
-# email = input('Masukan Email : ')
-# tgl_lahir = input('Masukan tanggal lahir (DD-MM-YYYY) : ')
-
-# excel_1 = Excel()
-# excel_1.fill_header()
-# excel_1.add_data(nama, email, tgl_lahir)
-# excel_1.close_workbook()
-
-# excel_2 = Excel('coba')
-# excel_2.fill_header()
-# excel_2.add_data('rico', 'ricoputra', '21-01-1998')
-# excel_2.close_workbook()

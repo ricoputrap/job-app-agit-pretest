@@ -19,8 +19,8 @@ class ImageConverter:
 
     def rotate_img(self, rotation_type):
         if rotation_type == 1: rotated_img = cv2.rotate(self.selected_img, cv2.ROTATE_90_CLOCKWISE)
-        elif rotation_type == 2: rotated_img = cv2.rotate(self.selected_img, cv2.ROTATE_180)
-        else: rotated_img = cv2.rotate(self.selected_img, cv2.ROTATE_90_COUNTERCLOCKWISE)
+        elif rotation_type == 2: rotated_img = cv2.rotate(self.selected_img, cv2.ROTATE_90_COUNTERCLOCKWISE)
+        else: rotated_img = cv2.rotate(self.selected_img, cv2.ROTATE_180)
         return rotated_img
     
     def show_img(self, img):
