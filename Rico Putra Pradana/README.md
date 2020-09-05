@@ -1,7 +1,7 @@
 # Panduan - Python Bootcamp Pretest
 File ini merupakan panduan untuk menjalankan program di setiap soal.
 
-##### Notes
+#### Notes
 * Panduan ini disiapkan hanya untuk komputer dengan OS Windows.
 * Pastikan Anda telah menginstall **virtualenv** pada komputer Anda.
 * Jika Anda belum menginstallnya silahkan ketik `pip install virtualenv` pada aplikasi Command Prompt (CMD).
@@ -18,7 +18,8 @@ File ini merupakan panduan untuk menjalankan program di setiap soal.
 4. Ketik `deactivate` pada CMD jika seluruh program telah selesai dijalankan.
 
 ### Soal 1
-Ketik `python soal_nama.py` pada CMD.
+1. Ketik `python soal_nama.py` pada CMD.
+2. Masukkan data yang diperlukan saat program dijalankan.
 
 ### Soal 2
 Ketik `python rgb_to_gray.py` pada CMD.
@@ -29,7 +30,8 @@ Ketik `python rgb_to_gray.py` pada CMD.
 
 ### Soal 4
 1. Ketik `python py_to_excel.py` pada CMD.
-2. Buka file bernama **rico_putra_pradana.xlsx** pada folder Soal_4.
+2. Masukkan data yang diperlukan saat program dijalankan.
+3. Buka file bernama **rico_putra_pradana.xlsx** pada folder Soal_4.
 
 ### Soal 5
 Ketik `python open_astra.py` pada CMD.
