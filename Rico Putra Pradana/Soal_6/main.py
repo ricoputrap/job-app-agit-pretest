@@ -13,7 +13,7 @@ def print_save_menu():
     print('Tujuan penyimpanan:')
     print('1: simpan sebagai file excel')
     print('2: simpan ke database')
-    print('3: tidak jadi disimpan, cukup dicetak saja')
+    print('3: tidak perlu disimpan, cukup dicetak saja')
 
 def print_user_data(new_person):
     print('Nama Anda : {}'.format(new_person.nama))
@@ -50,9 +50,13 @@ if main_menu == '1':
         new_excel.close_workbook()
         print_success_msg('Menyimpan data ke excel')
 
+    # save to db
     elif save_menu == '2':
-        pass # save to db
+        pass
+
+    # print out
     elif save_menu == '3':
+        print_break()
         print_user_data(new_person)
     else:
         pass # kembali take save_menu
