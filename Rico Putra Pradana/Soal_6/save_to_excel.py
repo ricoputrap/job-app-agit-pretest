@@ -7,9 +7,10 @@ class Excel:
         self.row_number = 1
     
     def fill_header(self):
-        self.worksheet.write('A1', 'nama')
-        self.worksheet.write('B1', 'email')
-        self.worksheet.write('C1', 'usia')
+        bold = self.workbook.add_format({'bold': True})
+        self.worksheet.write('A1', 'nama', bold)
+        self.worksheet.write('B1', 'email', bold)
+        self.worksheet.write('C1', 'usia', bold)
     
     def add_data(self, nama, email, usia):
         self.row_number += 1
